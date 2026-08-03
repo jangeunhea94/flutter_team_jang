@@ -126,7 +126,7 @@ class _ThirdPageState extends State<ThirdPage> {
     int mul = num1 * num2;
 
     setState(() {
-      mulResultText = mul.toString();
+      mulResultText = "$num1 * $num2 = $mul";
     });
   }
 }
