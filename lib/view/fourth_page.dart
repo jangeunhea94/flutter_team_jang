@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 
-class FirstPage extends StatefulWidget {
-  const FirstPage({super.key});
+class FourthPage extends StatefulWidget {
+  const FourthPage({super.key});
 
   @override
-  State<FirstPage> createState() => _FirstPageState();
+  State<FourthPage> createState() => _FourthPageState();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class _FourthPageState extends State<FourthPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar : AppBar(
-        title : Text('Fourth Page'),
-      ),
-      body : Center(
-        child: Text('네번째 페이지'),
-      )
-    );
+    return const Placeholder();
   }
 }

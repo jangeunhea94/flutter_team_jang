@@ -71,6 +71,14 @@ class _HomeState extends State<Home>
               icon: Icon(Icons.looks_two),
               text : "Two",
             ),
+            Tab(
+              icon: Icon(Icons.looks_3),
+              text : "Three",
+            ),
+            Tab(
+              icon: Icon(Icons.looks_4),
+              text : "Four",
+            ),
           ],
         ),
       ),
