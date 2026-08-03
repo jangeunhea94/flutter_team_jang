@@ -73,6 +73,7 @@ class _FourthPageState extends State<FourthPage> {
   }
 
   // Functions
+  // 나눗셈 연산 후 결과 출력
   void calculate() {
     if(num1Controller.text.trim().isEmpty || num2Controller.text.trim().isEmpty) {
       calcResult = "숫자를 입력하세요.";
