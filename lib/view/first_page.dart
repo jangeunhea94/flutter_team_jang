@@ -77,6 +77,7 @@ class _FirstPageState extends State<FirstPage> {
                 TextField(
                   textAlign: TextAlign.center,
                   controller: addController,
+                  readOnly: true,
                   decoration: InputDecoration(
                     labelText: '',
                     border: InputBorder.none,
