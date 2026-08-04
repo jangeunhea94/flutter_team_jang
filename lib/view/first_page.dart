@@ -9,20 +9,25 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   //Property
-  late TextEditingController num1comtroller;
-  late TextEditingController num2comtroller;
+  late TextEditingController num1controller;  // 첫번째 숫자
+  late TextEditingController num2controller;  // 두번째 숫자
 
-  late TextEditingController addController;
-  late String addReserve;
+  late String calResult;                      // 계산 결과
 
   @override
   void initState() {
     super.initState();
-    num1comtroller = TextEditingController();
-    num2comtroller = TextEditingController();
+    num1controller = TextEditingController();
+    num2controller = TextEditingController();
 
-    addController =  TextEditingController();
-    addReserve = '';
+    calResult = '';
+  }
+  @override
+    void dispose() {
+      num1controller.dispose();
+      num2controller.dispose();
+      super.dispose();
+    
   }
 
   @override
@@ -40,8 +45,10 @@ class _FirstPageState extends State<FirstPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // 첫번째 숫자 입력받기
               TextField(
-                controller: num1comtroller,
+                textAlign: TextAlign.center,
+                controller: num1controller,
                 decoration: InputDecoration(
                   labelText: '첫번째 숫자를 입력하시오',
                   border: OutlineInputBorder()
@@ -49,10 +56,13 @@ class _FirstPageState extends State<FirstPage> {
                 keyboardType: TextInputType.number,
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
+
+              //두번째 숫자 입력받기
               TextField(
-                controller: num2comtroller,
+                textAlign: TextAlign.center,
+                controller: num2controller,
                 decoration: InputDecoration(
                   labelText: '두번째 숫자를 입력하시오',
                   border: OutlineInputBorder()
@@ -61,29 +71,26 @@ class _FirstPageState extends State<FirstPage> {
                 
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               ElevatedButton(
                 onPressed: calcResult, 
-                child: Text('OK'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
                 ),
+                 child: Text('OK'),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                TextField(
-                  textAlign: TextAlign.center,
-                  controller: addController,
-                  readOnly: true,
-                  decoration: InputDecoration(
-                    labelText: '',
-                    border: InputBorder.none,
-                  ),
-
-                )
+                Text(
+                    calResult,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25,
+                    ),
+              ),
             ],
           )
         ),
@@ -92,13 +99,13 @@ class _FirstPageState extends State<FirstPage> {
   } //build
 
   void calcResult() {
-  int num1 = int.parse(num1comtroller.text.trim());
-  int num2 = int.parse(num2comtroller.text.trim());
+  int num1 = int.parse(num1controller.text.trim());
+  int num2 = int.parse(num2controller.text.trim());
 
-  int addResult = num1 + num2;
+  int add = num1 + num2;
 
-  addController.text = '$num1 + $num2 = $addResult';
-
-  setState(() {});
+  setState(() {
+    calResult = "$num1 + $num2 = $add";
+  });
 }
 }//class
